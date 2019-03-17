@@ -1,0 +1,29 @@
+<h1>Rezultāts</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Mājas komanda</th>
+            <th>Viesu komanda</th>
+            <th>Mājas komandas goli</th>
+            <th>Viesu komandas goli</th>
+            <th>Papildlaiks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @scoreboards.each do |scoreboard| %>
+            <tr>
+                <td><%= scoreboard.home_team.team_name %></td>
+                <td><%= scoreboard.guest_team.team_name %></td>
+                <td><%= scoreboard.home_score %></td>
+                <td><%= scoreboard.guest_score %></td>
+                <td><%= scoreboard.overtime %></td>
+
+                <td><%= link_to "Labot", edit_scoreboard_path(scoreboard) %></td>
+                <td><%= link_to "Dzēst", scoreboard_path(scoreboard), method: :delete, data: { confirm: "Vai esat drošs?" } %></td>
+            </tr>
+        <% end %>   
+    </tbody>
+</table>    
+
+<%= link_to "Jauna Spēle", new_scoreboard_path %>

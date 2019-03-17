@@ -1,0 +1,15 @@
+<%= form_with(model: team, local: true) do |form| %>
+    <div> 
+        <%= form.label :title, "Komandas nosaukums" %>
+        <%= form.text_field :title %>
+    </div>
+
+    <div> 
+        <%= form.label :title, "Komandas saīsinājums" %>
+        <%= form.text_field :code %>
+    </div>
+
+    <div>
+        <%= form.submit "Saglabāt" %>
+    </div>
+<% end %>

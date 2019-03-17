@@ -1,0 +1,33 @@
+<%= form_with(model: scoreboard, local: true) do |form| %>
+    
+    <!-- Izgūst datus no visām komandām un vizualizē datus priekš home_team_id kolonnas, un attiecīgos tabulas laukus -->
+    <div> 
+        <%= form.label :title, "Mājas komanda" %>
+        <%= form.collection_select :home_team_id, Team.all, :id, :team_name, prompt: true %>
+    </div>
+
+    <!-- Izgūst datus no visām komandām un vizualizē datus priekš guest_team_id kolonnas, un attiecīgos tabulas laukus -->
+    <div> 
+        <%= form.label :title, "Viesu komanda" %>
+        <%= form.collection_select :guest_team_id, Team.all, :id, :team_name, prompt: true %>
+    </div>
+
+    <div> 
+        <%= form.label :title, "Mājas komandas rezultāts" %>
+        <%= form.number_field :home_score %>
+    </div>
+
+    <div> 
+        <%= form.label :title, "Viesu komandas rezultāts" %>
+        <%= form.number_field :guest_score %>
+    </div>
+
+    <div> 
+        <%= form.label :title, "Papildlaiks" %>
+        <%= form.check_box :overtime %>
+    </div>
+
+    <div>
+        <%= form.submit "Saglabāt" %>
+    </div>
+<% end %>
